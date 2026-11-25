@@ -1,0 +1,223 @@
+/* ───────── letreiro neon ───────── */
+.neon {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.18em 0.32em;
+  border: 0;
+  background: none;
+  font-family: 'Tilt Neon', var(--font-display);
+  font-weight: 400;
+  font-size: calc(clamp(3.4rem, 1rem + 11vw, 9.5rem) * var(--neon-scale, 1));
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  white-space: nowrap;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.neon--button {
+  cursor: pointer;
+}
+.neon--button:focus-visible {
+  outline: 2px dashed var(--brand-hi);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+.neon__text {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  gap: 0.32em;
+}
+.neon__word {
+  display: inline-flex;
+}
+.neon__char {
+  display: inline-block;
+  will-change: text-shadow;
+  transition: transform 0.3s var(--ease-out);
+}
+.neon__spill {
+  position: absolute;
+  inset: -60% -18%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(6px);
+}
+@media (max-width: 520px) {
+  /* no celular o letreiro quebra em duas linhas, como uma placa */
+  .neon__text {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.08em;
+  }
+  .neon {
+    font-size: calc(clamp(3.4rem, 1rem + 15vw, 6rem) * var(--neon-scale, 1));
+  }
+}
+
+/* ───────── vitrine ───────── */
+.showcase {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56px;
+  background:
+    radial-gradient(70% 55% at 50% 18%, rgba(241, 119, 35, 0.07), transparent 70%),
+    var(--bg);
+}
+.showcase__sign {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.showcase__hint {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.showcase__stage {
+  position: relative;
+  width: 100%;
+  height: 560px;
+}
+@media (max-width: 640px) {
+  .showcase {
+    padding-top: 40px;
+  }
+  .showcase__stage {
+    height: 380px;
+  }
+}
+
+/* ───────── carrossel circular ───────── */
+.cc {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  touch-action: pan-y;
+  outline: none;
+}
+.cc--drag {
+  cursor: grab;
+}
+.cc--drag:active {
+  cursor: grabbing;
+}
+/* bordas laterais somem no fundo */
+.cc::before,
+.cc::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: min(16%, 180px);
+  z-index: 2;
+  pointer-events: none;
+}
+.cc::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--fade), transparent);
+}
+.cc::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--fade), transparent);
+}
+.cc__ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+.cc__card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-2);
+  color: var(--text);
+  text-align: left;
+  backface-visibility: visible;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.9);
+  outline: 1px solid rgba(244, 234, 219, 0.08);
+  outline-offset: -1px;
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
+.cc__card:focus-visible {
+  outline: 2px solid var(--brand-hi);
+  outline-offset: 3px;
+}
+.cc__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.cc__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateX(var(--px, 0)) scale(1.12);
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+.cc__cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  gap: 2px;
+  padding: 42px 16px 14px;
+  background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 18%, rgba(10, 7, 5, 0.55) 60%, transparent);
+}
+.cc__cap strong {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.625rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.cc__cap span {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+.cc__cta {
+  margin-top: 6px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-hi);
+  opacity: var(--front, 0);
+}
+.cc__shade {
+  position: absolute;
+  inset: 0;
+  background: var(--fade);
+  opacity: var(--shade, 0);
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .cc__cap {
+    padding: 34px 12px 11px;
+  }
+  .cc__cap strong {
+    font-size: 1.3125rem;
+  }
+  .cc__cap span {
+    font-size: 0.75rem;
+  }
+}

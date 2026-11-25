@@ -1,0 +1,66 @@
+/*
+  Empório Burguer — identidade
+  Layout: fundo de chapa (preto quente), laranja da marca usado em um só lugar forte
+  (faixa Top 1 da semana) e nos botões de ação; comanda de papel no resumo do pedido.
+  Tema único escuro, por escolha.
+*/
+:root {
+  color-scheme: dark;
+
+  /* cores */
+  --bg: #0f0c0a;            /* chapa */
+  --surface: #181310;       /* cartões */
+  --surface-2: #221b16;     /* campos, elevação */
+  --surface-3: #2d241d;
+  --line: rgba(244, 234, 219, 0.09);
+  --line-strong: rgba(244, 234, 219, 0.18);
+  --text: #f4eadb;          /* papel manteiga */
+  --muted: #b4a594;
+  --faint: #857767;
+  --brand: #f17723;         /* laranja do logo */
+  --brand-hi: #ff8c3f;
+  --brand-ink: #1b0d02;     /* texto sobre laranja */
+  --cheddar: #ffc043;
+  --ok: #5fd39a;
+  --danger: #ff6b5e;
+  --whats: #25d366;
+  --whats-ink: #052e16;
+  --paper: #f5ebdb;         /* comanda */
+  --paper-ink: #2b221b;
+  --paper-line: rgba(43, 34, 27, 0.28);
+
+  /* tipografia */
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', 'Roboto Condensed', Impact, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: clamp(1.75rem, 1.2rem + 2.2vw, 2.5rem);
+  --fs-3xl: clamp(2.5rem, 1.4rem + 4.4vw, 4.25rem);
+  --fs-hero: clamp(3rem, 1.2rem + 7.4vw, 6.75rem);
+
+  /* forma e espaço */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --header-h: 68px;
+  --catnav-h: 58px;
+  --maxw: 1240px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-lg: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 900px) {
+  :root {
+    --header-h: 76px;
+    --gutter: max(32px, env(safe-area-inset-left, 0px));
+    --gutter-r: max(32px, env(safe-area-inset-right, 0px));
+  }
+}

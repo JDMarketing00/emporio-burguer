@@ -1,0 +1,7 @@
+{
+  // Publicação no Cloudflare como Worker com arquivos estáticos (pasta dist/).
+  // Comando: npm run build && npx wrangler deploy
+  "name": "emporio-burguer",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./dist" }
+}

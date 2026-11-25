@@ -1,0 +1,226 @@
+/* ───────── informações ───────── */
+.info {
+  padding-block: 72px 64px;
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(60% 50% at 100% 0%, rgba(241, 119, 35, 0.08), transparent 70%),
+    var(--bg);
+}
+.info__grid {
+  margin-top: 32px;
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 760px) {
+  .info__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .info__block--hours {
+    grid-row: span 2;
+  }
+}
+@media (min-width: 1080px) {
+  .info__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .info__block--hours {
+    grid-row: auto;
+  }
+}
+.info__block {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 14px;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.info__block h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.375rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.info__block h3 svg {
+  width: 22px;
+  height: 22px;
+  color: var(--brand);
+}
+.info__sub {
+  margin-top: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+.info__lead {
+  font-size: var(--fs-lg);
+  max-width: 28rem;
+}
+.info__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+}
+.info__status.is-open {
+  color: var(--ok);
+}
+.info__status.is-closed .dot {
+  color: var(--danger);
+}
+.info__phone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.hours {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.hours th,
+.hours td {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  font-weight: 400;
+}
+.hours td {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+.hours tr:last-child th,
+.hours tr:last-child td {
+  border-bottom: 0;
+}
+.hours .is-today th,
+.hours .is-today td {
+  color: var(--text);
+  font-weight: 700;
+}
+.hours__today {
+  margin-left: 8px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--brand);
+  color: var(--brand-ink);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+
+.facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.facts li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.facts svg {
+  width: 18px;
+  height: 18px;
+  color: var(--ok);
+  stroke-width: 2.6;
+}
+.kv {
+  width: 100%;
+  margin: 4px 0 0;
+  display: grid;
+  gap: 0;
+}
+.kv div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.kv div:last-child {
+  border-bottom: 0;
+}
+.kv dt {
+  color: var(--muted);
+}
+.kv dd {
+  margin: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* ───────── rodapé ───────── */
+.footer {
+  border-top: 1px solid var(--line);
+  padding-top: 40px;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+.footer__inner {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+.footer__logo {
+  width: 72px;
+  height: auto;
+}
+.footer__name {
+  color: var(--text);
+  font-weight: 700;
+}
+.footer__legal {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+.footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+.footer__nav a {
+  text-decoration: none;
+}
+.footer__nav a:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer__copy {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+@media (min-width: 760px) {
+  .footer__inner {
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+  }
+}
