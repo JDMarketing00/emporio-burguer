@@ -105,9 +105,12 @@
   white-space: nowrap;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
-.chip:hover {
-  color: var(--text);
-  border-color: var(--text);
+/* hover só em aparelhos com mouse: no celular o toque deixava o botão com cara de ativo */
+@media (hover: hover) {
+  .chip:hover {
+    color: var(--text);
+    border-color: var(--text);
+  }
 }
 .chip__count {
   font-family: var(--font-mono);

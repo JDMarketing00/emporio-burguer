@@ -125,3 +125,10 @@ export function scrollToId(id: string): void {
   if (!el) return;
   el.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
 }
+
+/** Evento para pedir ao cardápio que role até uma categoria (usado pelo menu do topo e pela vitrine). */
+export const CATEGORY_EVENT = 'emporio:categoria';
+
+export function goToCategory(id: string): void {
+  window.dispatchEvent(new CustomEvent(CATEGORY_EVENT, { detail: id }));
+}

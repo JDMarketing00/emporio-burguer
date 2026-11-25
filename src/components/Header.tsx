@@ -1,7 +1,7 @@
 import { useCart } from '../cart/CartContext';
 import { store } from '../data/store';
 import { cx, formatBRL, img } from '../lib/format';
-import { useMinuteTick, useScrolled } from '../lib/hooks';
+import { goToCategory, useMinuteTick, useScrolled } from '../lib/hooks';
 import { getOpenStatus } from '../lib/hours';
 import { BagIcon } from './Icons';
 
@@ -23,7 +23,15 @@ export function Header() {
 
         <nav className="header__nav" aria-label="Seções do site">
           <a href="#cardapio">Cardápio</a>
-          <a href="#combos">Combos</a>
+          <a
+            href="#combos"
+            onClick={(e) => {
+              e.preventDefault();
+              goToCategory('combos');
+            }}
+          >
+            Combos
+          </a>
           <a href="#informacoes">Informações</a>
         </nav>
 

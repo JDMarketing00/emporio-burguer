@@ -1,6 +1,6 @@
 import { neonOrange, neonWarmWhite, showcaseItems } from '../data/showcase';
 import { productImage } from '../lib/format';
-import { scrollToId } from '../lib/hooks';
+import { goToCategory } from '../lib/hooks';
 import { CircularCarousel, type CarouselItem } from './CircularCarousel';
 import { NeonLogo } from './NeonLogo';
 
@@ -66,7 +66,7 @@ export function Showcase() {
           depthFade={0.55}
           innerShade={0.5}
           cornerRadius={16}
-          onSelect={(_, index) => scrollToId(items[index].category)}
+          onSelect={(_, index) => goToCategory(items[index].category)}
         />
       </div>
     </section>
